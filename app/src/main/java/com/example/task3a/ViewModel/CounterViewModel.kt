@@ -1,4 +1,4 @@
-package com.example.task3a
+package com.example.task3a.ViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -5,4 +5,8 @@
     <string name="counter_button_text">INCREASE COUNTER</string>
     <string name="main_button_guess">Counter</string>
     <string name="main_button_number_guess">Number Guess</string>
+    <string name="number_guess_letter">C</string>
+    <string name="number_guess_result">TEKRAR DENE</string>
+    <string name="text_clear">Clear</string>
+    <string name="text_guess">Guess</string>
 </resources>

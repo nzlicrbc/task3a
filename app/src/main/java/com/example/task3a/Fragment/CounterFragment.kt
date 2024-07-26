@@ -1,4 +1,4 @@
-package com.example.task3a
+package com.example.task3a.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.example.task3a.ViewModel.CounterViewModel
 import com.example.task3a.databinding.FragmentCounterBinding
 
 class CounterFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.task3a
+package com.example.task3a.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.task3a.R
 import com.example.task3a.databinding.FragmentNavigationBinding
 
 class NavigationFragment : Fragment() {
@@ -25,6 +26,10 @@ class NavigationFragment : Fragment() {
 
         binding.buttonCounter.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_to_counter)
+        }
+
+        binding.buttonNumberGuess.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_to_number_guess)
         }
     }
 

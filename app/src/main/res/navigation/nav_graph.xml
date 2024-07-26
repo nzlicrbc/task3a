@@ -7,17 +7,25 @@
 
     <fragment
         android:id="@+id/navigationFragment"
-        android:name="com.example.task3a.NavigationFragment"
+        android:name="com.example.task3a.Fragment.NavigationFragment"
     android:label="fragment_navigation"
     tools:layout="@layout/fragment_navigation">
-    <action
-        android:id="@+id/action_navigation_to_counter"
-        app:destination="@id/counterFragment" />
+        <action
+            android:id="@+id/action_navigation_to_counter"
+            app:destination="@id/counterFragment" />
+        <action
+            android:id="@+id/action_navigation_to_number_guess"
+            app:destination="@id/guessFragment" />
     </fragment>
     <fragment
     android:id="@+id/counterFragment"
-    android:name="com.example.task3a.CounterFragment"
+    android:name="com.example.task3a.Fragment.CounterFragment"
         android:label="fragment_counter"
         tools:layout="@layout/fragment_counter" />
+    <fragment
+        android:id="@+id/guessFragment"
+        android:name="com.example.task3a.Fragment.GuessFragment"
+        android:label="fragment_guess"
+        tools:layout="@layout/fragment_guess" />
 
 </navigation>
