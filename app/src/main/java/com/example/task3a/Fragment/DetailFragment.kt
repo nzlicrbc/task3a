@@ -10,8 +10,7 @@ import com.example.task3a.ViewModel.SharedViewModel
 import com.example.task3a.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
-    private var _binding: FragmentDetailBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentDetailBinding
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -19,7 +18,7 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,10 +28,5 @@ class DetailFragment : Fragment() {
         sharedViewModel.hiddenNumber.observe(viewLifecycleOwner) { number ->
             binding.textViewDetailNumber.text = number.toString()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

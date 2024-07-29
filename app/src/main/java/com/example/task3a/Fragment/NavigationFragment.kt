@@ -10,14 +10,13 @@ import com.example.task3a.R
 import com.example.task3a.databinding.FragmentNavigationBinding
 
 class NavigationFragment : Fragment() {
-    private var _binding: FragmentNavigationBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentNavigationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentNavigationBinding.inflate(inflater, container, false)
+        binding = FragmentNavigationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -33,10 +32,5 @@ class NavigationFragment : Fragment() {
                 findNavController().navigate(R.id.action_navigation_to_number_guess)
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

@@ -10,8 +10,7 @@ import com.example.task3a.ViewModel.CounterViewModel
 import com.example.task3a.databinding.FragmentCounterBinding
 
 class CounterFragment : Fragment() {
-    private var _binding: FragmentCounterBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentCounterBinding
     private val viewModel: CounterViewModel by viewModels()
     private var counter = 0
 
@@ -19,7 +18,7 @@ class CounterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCounterBinding.inflate(inflater, container, false)
+        binding = FragmentCounterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,10 +47,5 @@ class CounterFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
