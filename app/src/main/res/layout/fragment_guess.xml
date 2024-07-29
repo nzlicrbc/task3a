@@ -36,7 +36,7 @@
         android:columnCount="3"
         android:rowCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="@dimen/margin_medium">
+        android:padding="@dimen/padding_medium">
 
         <Button
             android:id="@+id/button1"

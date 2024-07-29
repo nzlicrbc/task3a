@@ -8,10 +8,6 @@ class CounterViewModel : ViewModel() {
     private val _counter = MutableLiveData(0)
     val counter: LiveData<Int> = _counter
 
-    init {
-        _counter.value = 0
-    }
-
     fun incrementCounter() {
         _counter.value = (_counter.value ?: 0) + 1
     }

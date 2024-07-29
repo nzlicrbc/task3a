@@ -2,7 +2,6 @@ package com.example.task3a
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
 import com.example.task3a.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

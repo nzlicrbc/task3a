@@ -24,12 +24,14 @@ class NavigationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonCounter.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_to_counter)
-        }
+        with(binding) {
+            buttonCounter.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_to_counter)
+            }
 
-        binding.buttonNumberGuess.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_to_number_guess)
+            buttonNumberGuess.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_to_number_guess)
+            }
         }
     }
 

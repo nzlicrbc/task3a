@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.example.task3a.ViewModel.CounterViewModel
 import com.example.task3a.databinding.FragmentCounterBinding
 
@@ -27,24 +26,26 @@ class CounterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.counter.observe(viewLifecycleOwner, Observer { newValue ->
+        viewModel.counter.observe(viewLifecycleOwner) { newValue ->
             binding.textViewCounter.text = newValue.toString()
-        })
-
-        binding.switchUseViewModel.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                binding.textViewCounter.text = viewModel.counter.value.toString()
-            } else {
-                binding.textViewCounter.text = counter.toString()
-            }
         }
 
-        binding.buttonIncrement.setOnClickListener {
-            if (binding.switchUseViewModel.isChecked) {
-                viewModel.incrementCounter()
-            } else {
-                counter++
-                binding.textViewCounter.text = counter.toString()
+        with(binding) {
+            switchUseViewModel.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    textViewCounter.text = viewModel.counter.value.toString()
+                } else {
+                    textViewCounter.text = counter.toString()
+                }
+            }
+
+            buttonIncrement.setOnClickListener {
+                if (switchUseViewModel.isChecked) {
+                    viewModel.incrementCounter()
+                } else {
+                    counter++
+                    textViewCounter.text = counter.toString()
+                }
             }
         }
     }

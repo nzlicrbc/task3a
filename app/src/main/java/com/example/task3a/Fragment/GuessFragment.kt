@@ -34,20 +34,17 @@ class GuessFragment : Fragment() {
         setupClickListeners()
     }
 
-    private fun setupObservers() {
-        viewModel.randomChar.observe(viewLifecycleOwner) { char ->
-            binding.textViewLetter.text = char.toString()
-        }
+    private fun setupObservers() { with(binding) {
+            viewModel.randomChar.observe(viewLifecycleOwner) { char ->
+                textViewLetter.text = char.toString()
+            }
 
-        viewModel.result.observe(viewLifecycleOwner) { result ->
-            binding.textViewResult.text = result
-        }
+            viewModel.result.observe(viewLifecycleOwner) { result ->
+                textViewResult.text = result
+            }
 
-        viewModel.guessedNumber.observe(viewLifecycleOwner) { number ->
-            if(number != null) {
-                binding.textViewResult.text = number.toString()
-            } else {
-                binding.textViewResult.text = viewModel.result.value
+            viewModel.guessedNumber.observe(viewLifecycleOwner) { number ->
+                textViewResult.text = number?.toString() ?: viewModel.result.value
             }
         }
     }
