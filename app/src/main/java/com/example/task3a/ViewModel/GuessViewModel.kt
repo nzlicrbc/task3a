@@ -18,12 +18,20 @@ class GuessViewModel : ViewModel() {
     val guessedNumber: LiveData<Int?> = _guessedNumber
 
     init {
-        generateNewNumberAndChar()
+        clearGame()
     }
 
-    private fun generateNewNumberAndChar() {
+    private fun generateNewNumber() {
         _randomNumber.value = (0..9).random()
+    }
+
+    private fun generateNewChar() {
         _randomChar.value = ('A'..'Z').random()
+    }
+
+    private fun clearGame() {
+        generateNewNumber()
+        generateNewChar()
         _result.value = "TEKRAR DENE"
         _guessedNumber.value = null
         _result.postValue(_result.value)
@@ -46,6 +54,6 @@ class GuessViewModel : ViewModel() {
     }
 
     fun clearGuess() {
-        generateNewNumberAndChar()
+        clearGame()
     }
 }
