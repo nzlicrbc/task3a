@@ -34,7 +34,8 @@ class GuessFragment : Fragment() {
         setupClickListeners()
     }
 
-    private fun setupObservers() { with(binding) {
+    private fun setupObservers() {
+        with(binding) {
             viewModel.randomChar.observe(viewLifecycleOwner) { char ->
                 textViewLetter.text = char.toString()
             }
@@ -50,7 +51,7 @@ class GuessFragment : Fragment() {
     }
 
     private fun setupClickListeners() = with(binding) {
-        val numberButtons = listOf (
+        val numberButtons = listOf(
             button0,
             button1,
             button2,
