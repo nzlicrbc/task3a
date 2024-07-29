@@ -5,14 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.task3a.R
 import com.example.task3a.ViewModel.GuessViewModel
+import com.example.task3a.ViewModel.SharedViewModel
 import com.example.task3a.databinding.FragmentGuessBinding
 
 class GuessFragment : Fragment() {
     private var _binding: FragmentGuessBinding? = null
     private val binding get() = _binding!!
     private val viewModel: GuessViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,6 +78,13 @@ class GuessFragment : Fragment() {
 
         buttonGuess.setOnClickListener {
             viewModel.guess()
+        }
+
+        textViewLetter.setOnClickListener {
+            viewModel.randomNumber.value?.let { hiddenNumber ->
+                sharedViewModel.setHiddenNumber(hiddenNumber)
+                findNavController().navigate(R.id.action_guess_to_detail)
+            }
         }
     }
 }

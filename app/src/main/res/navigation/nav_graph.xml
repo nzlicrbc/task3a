@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/navigationFragment"
         android:name="com.example.task3a.Fragment.NavigationFragment"
-    android:label="fragment_navigation"
-    tools:layout="@layout/fragment_navigation">
+        android:label="fragment_navigation"
+        tools:layout="@layout/fragment_navigation">
         <action
             android:id="@+id/action_navigation_to_counter"
             app:destination="@id/counterFragment" />
@@ -18,14 +18,23 @@
             app:destination="@id/guessFragment" />
     </fragment>
     <fragment
-    android:id="@+id/counterFragment"
-    android:name="com.example.task3a.Fragment.CounterFragment"
+        android:id="@+id/counterFragment"
+        android:name="com.example.task3a.Fragment.CounterFragment"
         android:label="fragment_counter"
         tools:layout="@layout/fragment_counter" />
     <fragment
         android:id="@+id/guessFragment"
         android:name="com.example.task3a.Fragment.GuessFragment"
         android:label="fragment_guess"
-        tools:layout="@layout/fragment_guess" />
+        tools:layout="@layout/fragment_guess" >
+        <action
+            android:id="@+id/action_guess_to_detail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.task3a.Fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 
 </navigation>
