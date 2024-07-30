@@ -1,4 +1,4 @@
-package com.example.task3a.Fragment
+package com.example.task3a.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.task3a.ViewModel.CounterViewModel
+import com.example.task3a.viewmodel.CounterViewModel
 import com.example.task3a.databinding.FragmentCounterBinding
 
 class CounterFragment : Fragment() {
@@ -31,11 +31,11 @@ class CounterFragment : Fragment() {
 
         with(binding) {
             switchUseViewModel.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    textViewCounter.text = viewModel.counter.value.toString()
-                } else {
-                    textViewCounter.text = counter.toString()
-                }
+                textViewCounter.text = if (isChecked) {
+                        viewModel.counter.value.toString()
+                    } else {
+                        counter.toString()
+                    }
             }
 
             buttonIncrement.setOnClickListener {

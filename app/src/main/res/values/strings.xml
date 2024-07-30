@@ -6,7 +6,8 @@
     <string name="main_button_guess">Counter</string>
     <string name="main_button_number_guess">Number Guess</string>
     <string name="number_guess_letter">C</string>
-    <string name="number_guess_result">TEKRAR DENE</string>
+    <string name="guess_result_try_again">TEKRAR DENE</string>
+    <string name="guess_result_win">KAZANDIN!</string>
     <string name="text_clear">Clear</string>
     <string name="text_guess">Guess</string>
 </resources>

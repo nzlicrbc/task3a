@@ -1,4 +1,4 @@
-package com.example.task3a.Fragment
+package com.example.task3a.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.task3a.R
-import com.example.task3a.ViewModel.GuessViewModel
-import com.example.task3a.ViewModel.SharedViewModel
+import com.example.task3a.viewmodel.GuessViewModel
+import com.example.task3a.viewmodel.SharedViewModel
 import com.example.task3a.databinding.FragmentGuessBinding
 
 class GuessFragment : Fragment() {
