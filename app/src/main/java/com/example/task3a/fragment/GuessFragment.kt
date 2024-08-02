@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.task3a.GuessResult
 import com.example.task3a.R
 import com.example.task3a.viewmodel.GuessViewModel
-import com.example.task3a.viewmodel.SharedViewModel
 import com.example.task3a.databinding.FragmentGuessBinding
+import com.example.task3a.viewmodel.SharedViewModel
 
 class GuessFragment : Fragment() {
-    private var _binding: FragmentGuessBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGuessBinding
     private val viewModel: GuessViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
@@ -23,7 +23,7 @@ class GuessFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGuessBinding.inflate(inflater, container, false)
+        binding = FragmentGuessBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,11 +41,15 @@ class GuessFragment : Fragment() {
             }
 
             viewModel.result.observe(viewLifecycleOwner) { result ->
-                textViewResult.text = result
+                textViewResult.text = when(result) {
+                    GuessResult.WIN -> getString(R.string.guess_result_win)
+                    GuessResult.TRY_AGAIN -> getString(R.string.guess_result_try_again)
+                }
             }
 
             viewModel.guessedNumber.observe(viewLifecycleOwner) { number ->
-                textViewResult.text = number?.toString() ?: viewModel.result.value
+                textViewResult.text = number?.toString() ?: getString(viewModel.result.value?.message
+                    ?: R.string.guess_result_try_again)
             }
         }
     }

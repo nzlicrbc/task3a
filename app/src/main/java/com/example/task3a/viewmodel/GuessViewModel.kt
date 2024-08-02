@@ -3,6 +3,7 @@ package com.example.task3a.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.task3a.GuessResult
 
 class GuessViewModel : ViewModel() {
     private val _randomNumber = MutableLiveData<Int>()
@@ -11,8 +12,8 @@ class GuessViewModel : ViewModel() {
     private val _randomChar = MutableLiveData<Char>()
     val randomChar: LiveData<Char> = _randomChar
 
-    private val _result = MutableLiveData<String>()
-    val result: LiveData<String> = _result
+    private val _result = MutableLiveData<GuessResult>()
+    val result: LiveData<GuessResult> = _result
 
     private val _guessedNumber = MutableLiveData<Int?>()
     val guessedNumber: LiveData<Int?> = _guessedNumber
@@ -32,7 +33,7 @@ class GuessViewModel : ViewModel() {
     private fun clearGame() {
         generateNewNumber()
         generateNewChar()
-        _result.value = "TEKRAR DENE"
+        _result.value = GuessResult.TRY_AGAIN
         _guessedNumber.value = null
         _result.postValue(_result.value)
     }
@@ -45,9 +46,9 @@ class GuessViewModel : ViewModel() {
         _guessedNumber.value?.let { guessedNumber ->
             _randomNumber.value?.let { randomNumber ->
                 _result.value = if (guessedNumber == randomNumber) {
-                    "KAZANDIN!"
+                    GuessResult.WIN
                 } else {
-                    "TEKRAR DENE"
+                    GuessResult.TRY_AGAIN
                 }
             }
         }
